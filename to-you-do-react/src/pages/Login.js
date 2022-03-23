@@ -4,12 +4,15 @@ import InputGroup from '../components/InputGroup';
 import Input from '../components/Input';
 import Button from '../components/Button';
 import { EntryPage, PageHeader } from './style';
+import logo from '../assets/img/logo_small_transp.png'
 
 
 function Login(){
     return (
         <EntryPage>
-            <PageHeader to="/">Logo maneira</PageHeader>
+            <PageHeader to="/">
+                <img src={logo} width={280} height={114}></img>
+            </PageHeader>
             <EntryCard>
                 <h2>Log in</h2>
                 <form onSubmit={(e) => e.preventDefault()}>
