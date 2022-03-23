@@ -5,7 +5,7 @@ import fs from 'fs/promises';
 export default defineConfig(() => ({
   esbuild: {
     loader: "jsx",
-    include: /src\/.*\.jsx?$/,
+    include: /\.(js|jsx)$/,
     exclude: [],
   },
   optimizeDeps: {
@@ -14,7 +14,7 @@ export default defineConfig(() => ({
         {
           name: "load-js-files-as-jsx",
           setup(build) {
-            build.onLoad({ filter: /src\/.*\.js$/ }, async (args) => ({
+            build.onLoad({ filter: /\.(js|jsx)$/ }, async (args) => ({
               loader: "jsx",
               contents: await fs.readFile(args.path, "utf8"),
             }));
