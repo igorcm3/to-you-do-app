@@ -32,10 +32,7 @@ function Login(){
                 </span>
             </EntryCard>
         </EntryPage>
-
-
     );
-
 }
 
 export default Login;
