@@ -30,7 +30,6 @@ public class ToDo {
     private String descricao;
 
     @Version
-    @Column(name = "version")
     private int version;
 
 

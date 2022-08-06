@@ -26,7 +26,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 public class User implements UserDetails, Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "user_id", nullable = false)
+    @Column(name = "user_id", nullable = false, updatable = false)
     private Long id;
 
     @Column(nullable = false, unique = true)
