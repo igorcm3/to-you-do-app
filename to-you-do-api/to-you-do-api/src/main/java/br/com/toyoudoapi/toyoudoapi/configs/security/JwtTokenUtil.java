@@ -20,6 +20,9 @@ public class JwtTokenUtil {
     static final String CLAIM_KEY_AUDIENCE = "audience";
     static final String CLAIM_KEY_CREATED = "created";
 
+    public static final String TOKEN_HEADER = "Authorization";
+    public static final String BEARER_PREFIX = "Bearer ";
+
     @Value("${jwt.secret}")
     private String secret;
 
