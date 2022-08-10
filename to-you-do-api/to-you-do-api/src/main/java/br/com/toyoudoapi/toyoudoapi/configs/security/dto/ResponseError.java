@@ -1,7 +1,7 @@
 package br.com.toyoudoapi.toyoudoapi.configs.security.dto;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,8 +18,5 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ResponseError implements Serializable {
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    private String error;
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    private List<String> errors;
+    private List<String> error = new ArrayList<>();
 }

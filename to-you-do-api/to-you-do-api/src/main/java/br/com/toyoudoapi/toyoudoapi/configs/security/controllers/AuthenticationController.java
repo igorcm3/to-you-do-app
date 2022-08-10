@@ -7,7 +7,6 @@ import br.com.toyoudoapi.toyoudoapi.configs.security.dto.TokenDto;
 import java.util.Optional;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -57,7 +56,7 @@ public class AuthenticationController {
         if (result.hasErrors()) {
             log.error("Erro ao gerar token Jwt: {}", result.getAllErrors());
             ResponseError responseError = new ResponseError();
-            result.getAllErrors().forEach(error -> responseError.getErrors().add(error.toString()));
+            result.getAllErrors().forEach(error -> responseError.getError().add(error.toString()));
             return ResponseEntity.badRequest().body(responseError);
         }
         log.info("Gerando token para o email {}.", authenticationDto.getEmail());
@@ -86,12 +85,12 @@ public class AuthenticationController {
         ResponseError responseError = new ResponseError();
 
         if (token.isEmpty()) {
-            responseError.getErrors().add("Token não informado.");
+            responseError.getError().add("Token não informado.");
         } else if (!jwtTokenUtil.tokenValido(token.get())) {
-            responseError.getErrors().add("Token inválido ou expirado.");
+            responseError.getError().add("Token inválido ou expirado.");
         }
 
-        if (!responseError.getErrors().isEmpty()) {
+        if (!responseError.getError().isEmpty()) {
             return ResponseEntity.badRequest().body(responseError);
         }
         String refreshedToken = jwtTokenUtil.refreshToken(token.get());

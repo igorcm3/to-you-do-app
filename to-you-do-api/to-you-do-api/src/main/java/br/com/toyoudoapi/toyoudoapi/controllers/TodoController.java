@@ -34,7 +34,7 @@ public class TodoController {
         try {
             if (result.hasErrors()) {
                 log.error("Erro ao salvar ToDo: {}", result.getAllErrors());
-                result.getAllErrors().forEach(error -> responseError.getErrors().add(error.toString()));
+                result.getAllErrors().forEach(error -> responseError.getError().add(error.toString()));
                 return ResponseEntity.badRequest().body(responseError);
             }
             ToDo todo = toDoService.TodoDTOtoTodo(dto);
@@ -42,7 +42,7 @@ public class TodoController {
             toDoService.save(todo);
             return ResponseEntity.ok(todo);
         }catch(Exception e){
-            responseError.getErrors().add(e.toString());
+            responseError.getError().add(e.toString());
             return ResponseEntity.badRequest().body(responseError);
         }
     }
@@ -55,7 +55,7 @@ public class TodoController {
             toDoService.deleteById(id);
             return ResponseEntity.ok("ToDO "+id+" deletado com sucesso!");
         }catch(Exception e){
-            responseError.getErrors().add(e.toString());
+            responseError.getError().add(e.toString());
             return ResponseEntity.badRequest().body(responseError);
         }
     }
@@ -67,7 +67,7 @@ public class TodoController {
             log.error("Retornando todos os ToDo");
             return ResponseEntity.ok(toDoService.findAll());
         }catch(Exception e){
-            responseError.getErrors().add(e.toString());
+            responseError.getError().add(e.toString());
             return ResponseEntity.badRequest().body(responseError);
         }
     }
@@ -79,7 +79,7 @@ public class TodoController {
             log.error("Retornando todos os ToDo");
             return ResponseEntity.ok(toDoService.findByConcluido(isConcluido));
         }catch(Exception e){
-            responseError.getErrors().add(e.toString());
+            responseError.getError().add(e.toString());
             return ResponseEntity.badRequest().body(responseError);
         }
     }

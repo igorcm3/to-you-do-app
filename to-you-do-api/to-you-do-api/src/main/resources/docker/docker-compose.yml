@@ -1,0 +1,11 @@
+#version: '3'
+#
+#services:
+#  redis-compose:
+#    image: redis
+#    command: redis-server --requirepass redis --appendonly yes
+#    hostname: redis
+#    ports:
+#      - "6379:6379"
+#    volumes:
+#      - /home/duducp/Redis:/var/lib/postgresql/data
