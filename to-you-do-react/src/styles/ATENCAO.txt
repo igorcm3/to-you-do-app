@@ -1,1 +1,0 @@
-apenas estilos comuns, espeficicos ficam dentro das pastas dos respectivos componentes e pages
