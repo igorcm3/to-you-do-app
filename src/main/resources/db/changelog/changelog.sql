@@ -17,5 +17,7 @@ CREATE TABLE "public"."usuario" (
      primary key (id)
 );
 
+alter table if exists "public"."usuario" add constraint UK_USERNAME unique (username);
+
 --changeset igor:V1_INSERT_USER_ADMIN.01
 insert into "public"."usuario" (username, password, version) values('admin@gmail.com', '$2a$10$hhXxbHy9ntosj./.qGzmW.T3UgRhinfj0.0ThN9SEqCJjGy0YB9Ty', 0);
