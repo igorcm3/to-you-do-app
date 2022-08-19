@@ -25,6 +25,7 @@ import org.springframework.security.core.userdetails.UserDetails;
  */
 @Entity
 @Table(name = "usuario")
+//@Audited
 @Getter
 @Setter
 @AllArgsConstructor

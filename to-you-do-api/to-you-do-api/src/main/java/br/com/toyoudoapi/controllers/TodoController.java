@@ -33,7 +33,6 @@ public class TodoController {
         ResponseError responseError = new ResponseError();
         try {
             if (result.hasErrors()) {
-                log.info("Erro ao salvar ToDo: {}", result.getAllErrors());
                 result.getAllErrors().forEach(error -> responseError.getError().add(error.toString()));
                 return ResponseEntity.badRequest().body(responseError);
             }
@@ -51,7 +50,6 @@ public class TodoController {
     public ResponseEntity<?> deleteTodo(@PathVariable("id") Long id){
         ResponseError responseError = new ResponseError();
         try {
-            log.info("Deletando ToDo id: {}", id);
             toDoService.deleteById(id);
             return ResponseEntity.ok("ToDO "+id+" deletado com sucesso!");
         }catch(Exception e){
@@ -75,7 +73,6 @@ public class TodoController {
     public ResponseEntity<?> findAll(){
         ResponseError responseError = new ResponseError();
         try {
-            //log.info("Retornando todos os ToDo");
             return ResponseEntity.ok(toDoService.findAll());
         }catch(Exception e){
             responseError.getError().add(e.toString());
