@@ -4,3 +4,4 @@ jdk:
   - openjdk11
 before_install:
   - chmod +x mvnw
+  - mvn clean package -Dspring.profiles.active=prod
