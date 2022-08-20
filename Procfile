@@ -1,1 +1,1 @@
-web: java -Dserver.port=$PORT -Dspring.profiles.active=prod -jar target/to-you-do-api-0.0.1-SNAPSHOT
+web: java -Xmx800m -Dserver.port=$PORT -Dspring.profiles.active=prod -jar target/to-you-do-api-0.0.1-SNAPSHOT
