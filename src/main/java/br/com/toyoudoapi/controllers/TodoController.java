@@ -4,6 +4,7 @@ import br.com.toyoudoapi.configs.security.dto.ResponseError;
 import br.com.toyoudoapi.models.ToDo;
 import br.com.toyoudoapi.models.dto.ToDoDTO;
 import br.com.toyoudoapi.services.interfaces.ToDoService;
+import io.swagger.annotations.ApiOperation;
 import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+@ApiOperation(value = "Todo", notes = "Operações relacionadas a entidade Todo")
 @RestController
 @RequestMapping("/todos")
 @CrossOrigin(origins = "*")
